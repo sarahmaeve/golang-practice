@@ -1,0 +1,19 @@
+Coding challenges. Mark with [X] if completed.
+
+* Given a map of student grades, display a list of grades sorted by grade first,
+and student name second. Have some ties.
+** Do the same with Last Name / First Name / Grade.
+** Display only those students with grades of 90% or better.
+
+---
+
+* Do Sum3 (given an array of integers, choose the three that will sum to a
+given value). return an empty array if no matches exist.
+
+---
+
+* Do the Helix log parsing problem
+
+---
+
+* Do the Helix or a similar API problem
