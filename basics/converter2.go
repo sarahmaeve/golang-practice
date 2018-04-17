@@ -8,24 +8,28 @@ package main
 
 import (
   "fmt"
-  "os"
   "strings"
 )
 
-// Probably could be expressed better than a zillion constants
+// use a map to avoid a lengthy switch() where each condition would need
+// to be specified.
+var conversionMap = map[string]float64 {
+  "mi2km": 1.60934,
+  "km2mi": 0.621371192,
+  "mi2ft": 5280,
+  "km2m": 1000,
+  "mi2m": 1609.34,
+  "ft2mi": 0.000189394,
+  "m2km": .001,
+  "ft2m": .3048,
+  "m2ft": 3.28084,
+  "ft2km": 0.0003048,
+  "km2ft": 3280.84,
+  "m2mi": 0.000621371,
+}
 
-// next step -- use os.Args
-
-const MilestoKm float64 = 1.60934
-const KmtoMiles float64 = 0.621371192
-const MilestoFeet float64 = 5280
-const KmtoMeters float64 = 1000
-const MilestoMeters float64 = MilestoKm * KmtoMeters
-const KmtoFeet float64 = KmtoMiles * MilestoFeet
-const FeettoMiles float64 = 1 / MilestoFeet
-const MeterstoKm float64 = 1 / KmtoMeters
-const FeettoMeters float64 = .3048
-const MeterstoFeet float64 = 1 / FeettoMeters
+// conversion to os.Args would need split or regexp to break apart
+// 1st user input arg: for example, 50mi -> 50, mi
 
 func main() {
   var quantity float64
@@ -39,19 +43,19 @@ func main() {
 
   // also catching when both are zero value because of bad scan
   if units_from == units_to {
-    fmt.Println("Units are identical.")
-    os.Exit(1)
+    panic("Units are identical or not specified.")
+  } else if quantity == 0 {
+    panic("No quantity specified.")
   }
+
+  var converterkey string
+  converterkey = units_from + "2" + units_to
 
   var converter float64
-  switch {
-    // add more later
-  case units_from == "mi" && units_to == "km": converter = MilestoKm
-  case units_from == "km" && units_to == "mi": converter = KmtoMiles
-   }
-
-  if converter != 0 {
+  converter, ok := conversionMap[converterkey]
+  if ok == true {
     fmt.Printf("%-.2f%s\n", quantity * converter, units_to)
+  } else {
+    fmt.Println("Units supported: mi km ft m")
   }
-
 }

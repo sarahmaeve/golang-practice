@@ -16,3 +16,9 @@ given value).  [X]
 
 * Do the Helix log parsing problem
 * Do the Helix or a similar API problem
+
+---[ Example from Patreon ]
+
+* Write a command-line program that creates randomized passwords.
+** Be able to specify password length, character sets, and numbers of special characters.
+*** Bonus: mix in a huge chunk of the unicode set 
