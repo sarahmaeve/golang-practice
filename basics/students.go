@@ -43,6 +43,10 @@ func (g Grade) letter_grade() string {
 	return "I"
 }
 
+func (g *Grade) change_grade(new_grade int) {
+	g.grade = new_grade
+}
+
 // TODO: function that shows a table of all subjects (alphabetized)
 // and the grades for each student (alpha order by Last name, first name)
 // by letter grade and raw score;
@@ -71,6 +75,8 @@ func main() {
 	grades[2].first_name = "Sam"
 	grades[2].last_name = "Wexford"
 
+	// instead of direct manipulation, use the method this time
+	grades[2].change_grade(80)
 	fmt.Println(grades[2])
 	fmt.Println(grades[2].letter_grade())
 }

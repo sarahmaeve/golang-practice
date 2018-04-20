@@ -26,3 +26,5 @@ given value).  [X]
 ---[ General ]
 
 * EXIF viewer or editor
+* Build a web site using Hugo
+* use the sha1 functions
