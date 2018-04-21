@@ -1,4 +1,4 @@
-// explore strings by rune, not by bytes
+// explore strings by rune, not by character or position
 package main
 
 import (
@@ -50,6 +50,9 @@ func main() {
 	}
 
 	var ss []kv
+	// does this make sense to avoid a lot of copies during the append()?
+	// (in general, as this is a small frequency set)
+	ss = make([]kv, 0, len(results))
 	for k, v := range results {
 		ss = append(ss, kv{k, v})
 	}

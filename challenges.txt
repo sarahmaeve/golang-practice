@@ -15,7 +15,7 @@ given value).  [X]
 ---[ Examples from Helix ]
 
 * Do the Helix log parsing problem
-* Do the Helix or a similar API problem
+* Do the Helix or a similar API problem (dog.ceo)
 
 ---[ Example from Patreon ]
 
