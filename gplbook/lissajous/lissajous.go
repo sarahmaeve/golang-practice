@@ -1,5 +1,6 @@
 // Lissajous generates GIF animations of random Lissjous figures
 // Chapter 1.4
+// exercise 1.5, 1.6: modify code to produce different color variations.
 
 package main
 
@@ -14,18 +15,13 @@ import (
 	"time"
 )
 
-var palette = []color.Color{color.White, color.Black}
-
-const (
-	whiteIndex = 0 // first color in palette
-	blackIndex = 1 // next color in palette
-)
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
+// whatever is the first element is the background
+var palette = []color.Color{color.White, color.RGBA{0x00, 0xee, 0x00, 0xff},
+	color.Black, color.RGBA{0xff, 0x10, 0x20, 0xff},
+	color.RGBA{0x75, 0x00, 0xf0, 0xff}}
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	lissajous(os.Stdout)
 }
 
@@ -47,8 +43,9 @@ func lissajous(out io.Writer) {
 		for t := 0.0; t < cycles*2*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*freq + phase)
+			// don't have cuts to background color by avoiding 0 index
 			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5),
-				blackIndex)
+				uint8(rand.Intn(len(palette)-1)+1))
 		}
 		phase += 0.1
 		anim.Delay = append(anim.Delay, delay)
