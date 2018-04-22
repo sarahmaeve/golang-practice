@@ -1,10 +1,13 @@
 package main
 
+import (
+	"math/rand"
+	"time"
+)
+
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	cards := newDeck()
-
-	hand, remainingDeck := deal(cards, 5)
-	hand.print()
-	remainingDeck.print()
-
+	cards.Shuffle()
+	cards.print()
 }
