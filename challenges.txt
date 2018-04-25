@@ -10,12 +10,14 @@ and student name second. Have some ties.
 * Do Sum3 (given an array of integers, choose the three that will sum to a
 given value).  [X]
 ** Refactor into a function that will return a slice of integers
-** How can this be made faster? More Go idiomatic? Easier to understand?
+** How can this be made faster? More Go i diomatic? Easier to understand?
 
 ---[ Examples from Helix ]
 
 * Do the Helix log parsing problem
-* Do the Helix or a similar API problem (dog.ceo)
+* Do the Helix or a similar API problem (dog.ceo) [X]
+** potential revisions: clean up sort (can make it simpler?), be nicer about request
+and use a User-Agent
 
 ---[ Example from Patreon ]
 
