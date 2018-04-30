@@ -21,13 +21,6 @@ and use a User-Agent
 
 ---[ Example from Patreon ]
 
-* Write a command-line program that creates randomized passwords.
-** Be able to specify password length, character sets, and numbers of special characters.
-*** Bonus: mix in a huge chunk of the unicode set
-
----[ General ]
-
-* EXIF viewer or editor
-* Photo watermark program
-* Build a web site using Hugo
-* use the sha1 functions
+* Write a command-line program that creates randomized passwords. [X]
+** Be able to specify password length, character sets, and numbers of special characters. [X]
+*** Bonus: Cyrillic and Arabic alphabet support options
