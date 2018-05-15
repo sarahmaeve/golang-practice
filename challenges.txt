@@ -23,4 +23,4 @@ and use a User-Agent
 
 * Write a command-line program that creates randomized passwords. [X]
 ** Be able to specify password length, character sets, and numbers of special characters. [X]
-*** Bonus: Cyrillic and Arabic alphabet support options
+*** Bonus: Cyrillic and Arabic alphabet support options [X]
